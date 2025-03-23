@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کاکاخیل شجرہ نسب</title>
+  <style>
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: 'Noto Nastaliq Urdu', serif;
+      background: linear-gradient(to bottom, #fdfdfd, #f1f5f9);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c5282;
+      margin-bottom: 40px;
+    }
+
+    .tree-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      position: relative;
+    }
+
+    .generation {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .person-box {
+      background: linear-gradient(to bottom right, #f7fafc, #e2e8f0);
+      border: 2px solid #cbd5e0;
+      border-radius: 15px;
+      padding: 10px 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    .person-box:hover {
+      transform: scale(1.03);
+    }
+
+    .person-box img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a202c;
+    }
+
+    .details {
+      font-size: 13px;
+      color: #4a5568;
+    }
+  </style>
+</head>
+<body>
+  <h1>کاکاخیل شجرہ نسب</h1>
+  <div class="tree-container" id="tree"></div>
+
+  <script>
+    const lineage = [
+      { id: "1", name: "سيد مدرار الله", birth: "", death: "", parent: "2" },
+      { id: "2", name: "سيد عزت الله", birth: "", death: "", parent: "3" },
+      { id: "3", name: "سيد محفوظ الله", birth: "", death: "", parent: "4" },
+      { id: "4", name: "سيد عظيم الله", birth: "", death: "", parent: "5" },
+      { id: "5", name: "سيد سميع الله", birth: "", death: "", parent: "6" },
+      { id: "6", name: "سيد نبي الله", birth: "", death: "", parent: "7" },
+      { id: "7", name: "سيد لطيف الله", birth: "", death: "", parent: "8" },
+      { id: "8", name: "شيخ دلير صاحب", birth: "", death: "", parent: "9" },
+      { id: "9", name: "شيخ غني دل صاحب", birth: "", death: "", parent: "10" },
+      { id: "10", name: "شيخ عبد الحليم صاحب", birth: "", death: "", parent: "11" },
+      { id: "11", name: "شيخ رحمكار كاكاصاحب", birth: "", death: "", parent: "12" },
+      { id: "12", name: "حضرت سيد بهادر صاحب", birth: "", death: "", parent: "13" },
+      { id: "13", name: "حضرت سيد نادر صاحب", birth: "", death: "", parent: "14" },
+      { id: "14", name: "حضرت سيد غالب صاحب", birth: "", death: "", parent: "15" },
+      { id: "15", name: "حضرت سيد آدم صاحب", birth: "", death: "", parent: "16" },
+      { id: "16", name: "حضرت سيد محمود صاحب", birth: "", death: "", parent: "17" },
+      { id: "17", name: "حضرت سيد باقر صاحب", birth: "", death: "", parent: "18" },
+      { id: "18", name: "حضرت سيد محبت صاحب", birth: "", death: "", parent: "19" },
+      { id: "19", name: "حضرت سيد ياسين صاحب", birth: "", death: "", parent: "20" },
+      { id: "20", name: "حضرت سيد أحمد صاحب", birth: "", death: "", parent: "21" },
+      { id: "21", name: "حضرت سيد سيف الدين صاحب", birth: "", death: "", parent: "22" },
+      { id: "22", name: "حضرت سيد سعد الدين صاحب", birth: "", death: "", parent: "23" },
+      { id: "23", name: "حضرت سيد علي أكبر رحمہ اللہ علیہ", birth: "", death: "", parent: "24" },
+      { id: "24", name: "حضرت سيد فاتح رحمہ اللہ علیہ", birth: "", death: "", parent: "25" },
+      { id: "25", name: "حضرت سيد قاف رحمہ اللہ علیہ", birth: "", death: "", parent: "26" },
+      { id: "26", name: "حضرت سيد فاتح المعروف سيد جان رحمہ اللہ علیہ", birth: "", death: "", parent: "27" },
+      { id: "27", name: "حضرت سيد رجال صاحب رحمہ اللہ علیہ", birth: "", death: "", parent: "28" },
+      { id: "28", name: "حضرت سيد لقمان صاحب رحمہ اللہ علیہ", birth: "", death: "", parent: "29" },
+      { id: "29", name: "حضرت سيد علي المعروف خاتم رحمہ اللہ علیہ", birth: "", death: "", parent: "30" },
+      { id: "30", name: "حضرت سيدنا اسماعيل رحمہ اللہ علیہ", birth: "", death: "", parent: "31" },
+      { id: "31", name: "حضرت سيد جعفر صادق رحمہ اللہ علیہ", birth: "", death: "", parent: "32" },
+      { id: "32", name: "حضرت سيد محمد باقر رحمہ اللہ علیہ", birth: "", death: "", parent: "33" },
+      { id: "33", name: "حضرت سيدنا علي زين العابدين رحمہ اللہ علیہ", birth: "", death: "", parent: "34" },
+      { id: "34", name: "حضرت سيدنا حسين رحمہ اللہ علیہ", birth: "", death: "", parent: "35" },
+      { id: "35", name: "علي بن أبي طالب رضي الله عنه", birth: "", death: "", parent: "36" },
+      { id: "36", name: "حضرت سيد فاطمة الزهراء رضي الله عنها", birth: "", death: "", parent: null }
+    ];
+
+    // Depth sorting (latest first)
+    const personMap = {};
+    lineage.forEach(p => personMap[p.id] = p);
+
+    function getDepth(person) {
+      if (!person.parent) return 0;
+      return 1 + getDepth(personMap[person.parent]);
+    }
+
+    lineage.forEach(p => {
+      p.depth = getDepth(p);
+    });
+
+    lineage.sort((a, b) => b.depth - a.depth);
+
+    const treeDiv = document.getElementById('tree');
+
+    lineage.forEach((person, index) => {
+      const div = document.createElement('div');
+      div.className = 'person-box';
+      div.id = 'box-' + person.id;
+      div.innerHTML = `
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="img">
+        <div class="name">${person.name}</div>
+        <div class="details">ولادت: ${person.birth || '___'}</div>
+        <div class="details">وفات: ${person.death || '___'}</div>
+      `;
+
+      const genDiv = document.createElement('div');
+      genDiv.className = 'generation';
+      genDiv.appendChild(div);
+      treeDiv.appendChild(genDiv);
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      lineage.forEach(person => {
+        if (person.parent) {
+          const parentEl = document.getElementById('box-' + person.parent);
+          const childEl = document.getElementById('box-' + person.id);
+          if (parentEl && childEl) {
+            new LeaderLine(
+              LeaderLine.pointAnchor(parentEl, { x: '50%', y: '100%' }),
+              LeaderLine.pointAnchor(childEl, { x: '50%', y: '0%' }),
+              {
+                color: '#4a5568',       // Dark gray line
+                size: 4,                // Slightly thick pipe
+                path: 'fluid',          // Curved connection (or use 'straight' for linear)
+                startPlug: 'none',      // ❌ No dot
+                endPlug: 'none',        // ❌ No arrow
+                gradient: false
+              }
+            );
+
+
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
